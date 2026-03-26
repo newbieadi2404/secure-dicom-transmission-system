@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --brand-primary: 59, 130, 246; /* Blue 500 */
+    --brand-secondary: 16, 185, 129; /* Emerald 500 */
+    --bg-main: 2, 6, 23; /* Slate 950 */
+    --bg-card: 15, 23, 42; /* Slate 900 */
+    --border-subtle: 30, 41, 59; /* Slate 800 */
+  }
+
+  body {
+    @apply bg-[#020617] text-slate-100 antialiased min-h-screen selection:bg-blue-500/30;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  #root {
+    @apply min-h-screen flex flex-col;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism */
+  .glass-effect {
+    @apply bg-slate-900/40 backdrop-blur-2xl border border-slate-800/60 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+
+  .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-slate-800/60 shadow-2xl rounded-[2rem] transition-all duration-300;
+  }
+
+  .glass-input {
+    @apply bg-slate-950/50 border border-slate-800 rounded-2xl focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none text-slate-200 placeholder:text-slate-600;
+  }
+
+  /* Dashboard Navigation Link */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200;
+  }
+
+  .nav-link-active {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30;
+  }
+
+  .nav-link-inactive {
+    @apply text-slate-400 hover:bg-slate-800/50 hover:text-white;
+  }
+
+  /* Custom Professional Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-800/80 rounded-full hover:bg-slate-700 transition-colors;
+  }
+}
+
+/* Sophisticated Animations */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal {
+  animation: reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Subtle Glow Effects */
+.glow-blue {
+  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.5);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.5);
+}

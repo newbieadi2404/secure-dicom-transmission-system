@@ -67,6 +67,41 @@ These results demonstrate strong resistance against statistical and differential
 
 ---
 
+## 📊 Security Analysis & Validation
+
+### 🔍 Correlation Analysis
+![Encrypted](./assets/correlation_encrypted_image.png)
+![Original](./assets/correlation_original_image.png)
+
+- Original image shows high correlation → predictable structure  
+- Encrypted image shows near-zero correlation → randomness achieved  
+
+---
+
+### 📈 Histogram Comparison
+![Histogram](./assets/histogram_comparison.png)
+
+- Original histogram is non-uniform  
+- Encrypted histogram is uniform → data hidden  
+
+---
+
+### 🔥 Entropy Heatmap
+![Entropy](./assets/entropy_heatmap.png)
+
+- High entropy across image  
+- Confirms strong randomness (~8 for 8-bit images)  
+
+---
+
+### ⚡ NPCR & UACI
+![NPCR UACI](./assets/npcr_uaci_report.png)
+
+- NPCR ≈ 99.6% → strong diffusion  
+- UACI ≈ 33% → optimal intensity variation  
+
+---
+
 ## ⚙️ Setup & Run
 
 ### Backend

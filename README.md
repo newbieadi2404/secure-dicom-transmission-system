@@ -28,12 +28,19 @@ It ensures:
 ---
 
 ## 🧠 System Architecture
-User → Frontend (React)
-→ Backend (Flask API)
-→ Encryption Engine (AES + RSA)
-→ Secure Package (.smt)
-→ Email Transmission
-→ Receiver → Decryption → Access Control
+Client (Doctor / Patient)
+↓
+Frontend (React UI)
+↓
+Backend API (Flask + RBAC + JWT)
+↓
+Encryption Engine (AES-GCM + RSA + Signature)
+↓
+Secure Package (.smt)
+↓
+Transmission Layer (Email)
+↓
+Receiver → Verification → Decryption → Access Control
 
 ---
 
@@ -50,74 +57,111 @@ These results demonstrate strong resistance against statistical and differential
 
 ---
 
-## 🛠 Tech Stack
+## 📸 System Demonstration
 
-- Backend: Flask, SQLAlchemy  
-- Frontend: React (Vite)  
-- Cryptography: AES-GCM, RSA-2048, RSA-PSS  
-- Data Processing: pydicom, NumPy  
+- 🔑 Encryption Workflow: Upload → Encrypt → Secure Package (.smt)
+- 📊 Security Metrics: Entropy, NPCR, UACI, Correlation
+- 🔍 Analysis: Histogram comparison, pixel correlation, entropy distribution
+
+---
+
+## ⚙️ Setup & Run
+
+### Backend
+```bash
+pip install -r requirements.txt
+python manage.py 
+
+```
+
+---
+
+##  Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+
+```
+
+---
+
+
+## Test Flow
+
+- Upload DICOM file
+- Encrypt and send
+- Receive secure package
+- Decrypt and verify integrity
+
+---
+
+
+##  🛠️ Tech Stack
+
+- Backend: Flask, SQLAlchemy
+- Frontend: React (Vite)
+- Cryptography: AES-GCM, RSA-2048, RSA-PSS
+- Data Processing: pydicom, NumPy
 
 ---
 
 ## 📊 Key Highlights
 
-- End-to-end secure DICOM transmission pipeline  
-- Backend-driven encryption architecture  
-- Real cryptographic validation using entropy and diffusion metrics  
-- Designed for healthcare-grade data security use cases  
+- End-to-end secure DICOM transmission pipeline
+- Backend-driven encryption architecture
+- Real cryptographic validation using entropy and diffusion metrics
+- Designed for healthcare-grade data security use cases
 
 ---
 
 ## ❗ Problem Statement
 
-Medical image transmission systems often lack end-to-end encryption and proper authentication mechanisms, exposing sensitive patient data to interception, tampering, and replay attacks.
+ Medical image transmission systems often lack end-to-end encryption and proper authentication mechanisms, exposing sensitive patient data to interception, tampering, and replay attacks. 
 
-This system addresses:
-- Secure transmission of DICOM images  
-- Data authenticity verification  
-- Protection against unauthorized access and replay attacks  
+ This system addresses: 
+ - Secure transmission of DICOM images 
+ - Data authenticity verification
+ - Protection against unauthorized access and replay attacks
 
----
+  ---
 
-## ⚙️ Implementation Details
+  ## ⚙️ Implementation Details
 
-- AES-256-GCM used for pixel data encryption (confidentiality + integrity)  
-- RSA-2048 (OAEP) used for secure key exchange  
-- RSA-PSS used for digital signatures  
-- JWT-based authentication with RBAC enforcement  
-- Nonce-based replay protection mechanism  
-- Audit logging for security monitoring  
+- AES-256-GCM used for pixel data encryption (confidentiality + integrity)
+- RSA-2048 (OAEP) used for secure key exchange
+- RSA-PSS used for digital signatures 
+- JWT-based authentication with RBAC enforcement 
+- Nonce-based replay protection mechanism 
+- Audit logging for security monitoring 
 
----
+--- 
 
 ## ⚠️ Limitations
 
-- Backend-side encryption (not zero-knowledge architecture)  
-- Replay protection is partial  
-- Local key storage (no HSM/KMS integration)  
-- SQLite not suitable for high-scale production  
+- Backend-side encryption (not zero-knowledge architecture) 
+- Replay protection is partial 
+- Local key storage (no HSM/KMS integration) 
+- SQLite not suitable for high-scale production 
 
----
+--- 
 
-## 🚀 Future Improvements
+## 🚀 Future Improvements 
 
-- Client-side encryption (true zero-knowledge system)  
-- Cloud Key Management (AWS KMS / HSM)  
-- PostgreSQL migration  
-- Full replay attack prevention system  
-- Secure transport protocols (mTLS, HTTPS enforcement)  
+- Client-side encryption (true zero-knowledge system) 
+- Cloud Key Management (AWS KMS / HSM) 
+- PostgreSQL migration 
+- Full replay attack prevention system 
+- Secure transport protocols (mTLS, HTTPS enforcement) 
 
----
+--- 
 
 ## 📌 Conclusion
 
-This project demonstrates a secure and scalable approach to medical image transmission using modern cryptographic techniques.
+ This project demonstrates a secure and scalable approach to medical image transmission using modern cryptographic techniques. 
 
-It balances:
-- Security  
-- Performance  
-- Practical implementation constraints  
-
-and serves as a strong foundation for real-world healthcare data systems.
-
----  
+ It balances: 
+ - Security 
+ - Performance 
+ - Practical implementation constraints and serves as a strong foundation for real-world healthcare data systems.
+ 

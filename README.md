@@ -28,19 +28,7 @@ It ensures:
 ---
 
 ## 🧠 System Architecture
-Client (Doctor / Patient)
-↓
-Frontend (React UI)
-↓
-Backend API (Flask + RBAC + JWT)
-↓
-Encryption Engine (AES-GCM + RSA + Signature)
-↓
-Secure Package (.smt)
-↓
-Transmission Layer (Email)
-↓
-Receiver → Verification → Decryption → Access Control
+Client (Doctor / Patient) → Frontend (React UI) → Backend API (Flask + RBAC + JWT) → Encryption Engine (AES-GCM + RSA + Signature) → Secure Package (.smt) → Transmission Layer (Email) → Receiver → Verification → Decryption → Access Control
 
 ---
 
